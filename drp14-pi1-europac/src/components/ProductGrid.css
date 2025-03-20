@@ -1,0 +1,11 @@
+.product-grid-container {
+    padding: 30px;
+    text-align: center;
+  }
+  
+  .product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Cria colunas responsivas */
+    gap: 20px;
+    margin-top: 20px;
+  }

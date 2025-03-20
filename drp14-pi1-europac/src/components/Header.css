@@ -1,0 +1,48 @@
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    background-color: #f8f8f8; /* Cor de fundo clara */
+    border-bottom: 1px solid #eee;
+  }
+  
+  .logo {
+    font-size: 1.5em;
+    font-weight: bold;
+  }
+  
+  .navigation ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+  }
+  
+  .navigation li {
+    margin-left: 20px;
+  }
+  
+  .navigation a {
+    text-decoration: none;
+    color: #333;
+  }
+  
+  .search-bar {
+    display: flex;
+  }
+  
+  .search-bar input[type="text"] {
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px 0 0 4px;
+  }
+  
+  .search-bar button {
+    padding: 8px 15px;
+    background-color: #007bff; /* Cor azul para o botão */
+    color: white;
+    border: none;
+    border-radius: 0 4px 4px 0;
+    cursor: pointer;
+  }
