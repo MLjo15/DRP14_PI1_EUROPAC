@@ -22,7 +22,7 @@ const products = [
 function ProductGrid() {
   return (
     <div className="product-grid-container">
-      <h2>Produtos</h2>
+      <h2>Nossos produtos</h2>
       <div className="product-grid">
         {products.map((product, index) => (
           <Link to={`/product/${index}`} key={index}> {/* Crie um Link */}

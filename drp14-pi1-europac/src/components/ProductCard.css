@@ -6,11 +6,11 @@
   
   .image-cap {
     background-color: #eee; /* Placeholder para a imagem */
-    height: 150px; /* Altura fixa para as imagens */
+    height: 200px; /* Altura fixa para as imagens */
     display: flex;
     justify-content: center;
     align-items: center;
-    color: #777;
+    color: #77777700;
     font-size: 0.9em;
   }
   
@@ -22,7 +22,8 @@
   }
   
   .category {
-    padding: 15px;
+    padding: 10px;
     text-align: center;
     background-color: white;
+    text-decoration: none;
   }

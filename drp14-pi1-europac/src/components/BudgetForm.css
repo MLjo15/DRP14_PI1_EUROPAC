@@ -1,11 +1,11 @@
-.orcamento-form-container {
+.budget-form-container {
     display: flex;
     justify-content: space-between;
-    padding: 20px;
+    padding: 15px 150px 15px 150px;
   }
   
   .form-container {
-    width: 45%;
+    width: 50%;
   }
   
   .form-container form {
@@ -15,13 +15,14 @@
   
   .form-container label {
     margin-top: 10px;
+    margin-left: 10px;
   }
   
   .form-container input,
   .form-container textarea {
     padding: 8px;
     margin-top: 5px;
-    border: 1px solid #ccc;
+    border: 1px solid #cccccc;
     border-radius: 4px;
   }
   
@@ -44,9 +45,9 @@
   }
   
   .contato-info p {
-    margin-bottom: 15px;
+    margin-bottom: 25px;
   }
   
   .map-container {
-    margin-top: 20px;
+    margin-top: 25px;
   }

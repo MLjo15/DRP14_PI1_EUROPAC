@@ -1,7 +1,7 @@
 .hero {
     position: relative;
     background-color: #ddd; /* Cor de fundo cinza para o banner */
-    height: 300px; /* Altura aproximada do banner */
+    height: 350px; /* Altura aproximada do banner 550px */
     display: flex;
     justify-content: center;
     align-items: center;

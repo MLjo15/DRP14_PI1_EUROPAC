@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import './OrcamentoForm.css';
+import './BudgetForm.css';
 
-function OrcamentoForm() {
+function BudgetForm() {
   const [nome, setNome] = useState('');
   const [email, setEmail] = useState('');
   const [telefone, setTelefone] = useState('');
@@ -15,9 +15,9 @@ function OrcamentoForm() {
   };
 
   return (
-    <div className="orcamento-form-container">
+    <div className="budget-form-container">
       <div className="form-container">
-        <h2>O café está pronto! Vamos conversar?</h2>
+        <h2>Entre em contato!</h2>
         <form onSubmit={handleSubmit}>
           <label htmlFor="nome">Nome:</label>
           <input
@@ -69,14 +69,14 @@ function OrcamentoForm() {
 
       <div className="contato-info">
         <h3>ENDEREÇO</h3>
-        <p>Rua Lorem Ipsum Dolor Sit Amet, 321 - São Bernardo - SP - Brasil - CEP: 12345-321</p>
+        <p>Rua Miguel Mota, 380A - Vila Canero, São Paulo - SP, 03191-110</p>
 
         <h3>TELEFONE</h3>
-        <p>+55 11 1212-4545</p>
+        <p>+55 11 2966-4076</p>
 
         <div className="map-container">
           <iframe
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3655.486665715568!2d-46.54148768502206!3d-23.61864888465063!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94ce5b1f5f5f5f5f5%3A0x1a2b3c4d5e6f7g8h!2sRua%20Lorem%20Ipsum%20Dolor%20Sit%20Amet%2C%20321%20-%20S%C3%A3o%20Bernardo%20do%20Campo%2C%20SP%2C%20Brasil!5e0!3m2!1spt-BR!2sbr!4v1678888888888!5m2!1spt-BR!2sbr"
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3656.772592534882!2d-46.56586618501258!3d-23.57861546747535!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94ce5c1474136e65%3A0x6a0a09e02a0a2569!2sR.%20Miguel%20Mota%2C%20380A%20-%20Vila%20Canero%2C%20S%C3%A3o%20Paulo%20-%20SP%2C%2003191-110!5e0!3m2!1spt-BR!2sbr!4v1709403756184!5m2!1spt-BR!2sbr"
             width="100%"
             height="250"
             style={{ border: 0 }}
@@ -91,4 +91,4 @@ function OrcamentoForm() {
   );
 }
 
-export default OrcamentoForm;
+export default BudgetForm;

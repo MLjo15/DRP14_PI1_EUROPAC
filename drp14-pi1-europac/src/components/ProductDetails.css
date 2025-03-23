@@ -1,5 +1,5 @@
 .product-details-container {
-  padding: 20px;
+  padding: 20px 100px 55px 100px;
 }
 
 .product-details-container h1 {
@@ -35,22 +35,26 @@
   font-size: 1.1em;
   margin-top: 15px;
   margin-bottom: 5px;
+  margin-left: 100px;
 }
 
 .description-container p {
-  line-height: 1.6;
+  line-height: 0.6;
+  margin-left: 120px;
 }
 
 .button-container {
   display: flex;
-  margin-top: 20px;
+  margin-top: 40px;
+  margin-left: 100px;
 }
 
 .budget-button {
   background-color: #007bff;
   color: white;
-  padding: 10px 15px;
+  padding: 12px 25px;
   border: none;
   border-radius: 5px;
   cursor: pointer;
+  margin-left: 100px;
 }
