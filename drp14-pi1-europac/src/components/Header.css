@@ -2,14 +2,14 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 20px;
-    background-color: #f8f8f8; /* Cor de fundo clara */
-    border-bottom: 1px solid #eee;
+    padding: 10px;
+    background-color: #d8d8d8; /* Cor de fundo clara */
+    border-bottom: 1px solid #d8d8d8;
   }
   
-  .logo {
-    font-size: 1.5em;
-    font-weight: bold;
+  .header .logo img {
+    max-height: 75px; /* Ajuste o tamanho conforme necessário */
+    margin-left: 35px;
   }
   
   .navigation ul {
