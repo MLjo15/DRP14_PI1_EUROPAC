@@ -1,5 +1,13 @@
 import React, { useState } from 'react';
+import { createClient } from '@supabase/supabase-js';
 import './BudgetForm.css';
+
+// Inicialize o cliente Supabase com sua URL e chave de API
+const supabaseUrl = process.env.REACT_APP_SUPABASE_URL;
+const supabaseKey = process.env.REACT_APP_SUPABASE_KEY;
+//const emailServiceApiKey = process.env.REACT_APP_EMAIL_SERVICE_API_KEY;
+
+const supabase = createClient(supabaseUrl, supabaseKey);
 
 function BudgetForm() {
   const [nome, setNome] = useState('');
@@ -7,17 +15,102 @@ function BudgetForm() {
   const [telefone, setTelefone] = useState('');
   const [assunto, setAssunto] = useState('');
   const [mensagem, setMensagem] = useState('');
+  const [enviando, setEnviando] = useState(false);
+  const [mensagemSucesso, setMensagemSucesso] = useState('');
+  const [mensagemErro, setMensagemErro] = useState('');
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
-    // Aqui você pode adicionar a lógica para enviar o formulário
-    console.log({ nome, email, telefone, assunto, mensagem });
+    setEnviando(true);
+    setMensagemSucesso('');
+    setMensagemErro('');
+
+    // Validação no frontend
+    if (!nome.trim()) {
+      setMensagemErro('Por favor, digite seu nome.');
+      setEnviando(false);
+      return;
+    }
+
+    if (!email.trim() || !/\S+@\S+\.\S+/.test(email)) {
+      setMensagemErro('Por favor, digite um e-mail válido.');
+      setEnviando(false);
+      return;
+    }
+
+    if (!telefone.trim()) {
+      setMensagemErro('Por favor, digite seu telefone.');
+      setEnviando(false);
+      return;
+    }
+
+    if (!assunto.trim()) {
+      setMensagemErro('Por favor, digite o assunto.');
+      setEnviando(false);
+      return;
+    }
+
+    if (!mensagem.trim()) {
+      setMensagemErro('Por favor, digite sua mensagem.');
+      setEnviando(false);
+      return;
+    }
+
+    const { data, error } = await supabase
+      .from('COTACOES') // Substitua pelo nome da sua tabela no Supabase
+      .insert([
+        { nome, email, telefone, assunto, mensagem },
+      ]);
+
+    if (error) {
+      console.error('Erro ao enviar cotação para o Supabase:', error);
+      setMensagemErro('Houve um erro ao enviar sua mensagem. Por favor, tente novamente.');
+    } else {
+      console.log('Cotação enviada com sucesso para o Supabase:', data);
+      setMensagemSucesso('Sua mensagem foi enviada com sucesso! Em breve entraremos em contato.');
+      // Limpar o formulário após o sucesso
+      setNome('');
+      setEmail('');
+      setTelefone('');
+      setAssunto('');
+      setMensagem('');
+
+      // Chamar a função para enviar o email (Edge Function do Supabase)
+      if (data && data.length > 0) {
+        await enviarEmail(data[0].id);
+      } else {
+        console.warn('Não foi possível obter o ID da cotação após a inserção.', data);
+        // Lógica alternativa ou tratamento de erro aqui
+      }
+    }
+
+    setEnviando(false);
+  };
+
+  const enviarEmail = async (cotacaoId) => {
+    try {
+      const { data: emailData, error: emailError } = await supabase.functions.invoke('enviar-email-cotacao', {
+        body: JSON.stringify({ cotacaoId }),
+      });
+
+      if (emailError) {
+        console.error('Erro ao chamar a Edge Function de envio de email:', emailError);
+        // Aqui você pode decidir se quer mostrar uma mensagem de erro ao usuário
+        // mesmo que a cotação tenha sido salva no banco de dados.
+      } else {
+        console.log('Email enviado com sucesso:', emailData);
+      }
+    } catch (error) {
+      console.error('Erro ao chamar a Edge Function:', error);
+    }
   };
 
   return (
     <div className="budget-form-container">
       <div className="form-container">
         <h2>Entre em contato!</h2>
+        {mensagemSucesso && <div className="success-message">{mensagemSucesso}</div>}
+        {mensagemErro && <div className="error-message">{mensagemErro}</div>}
         <form onSubmit={handleSubmit}>
           <label htmlFor="nome">Nome:</label>
           <input
@@ -63,7 +156,9 @@ function BudgetForm() {
             required
           ></textarea>
 
-          <button type="submit">Enviar Contato</button>
+          <button type="submit" disabled={enviando}>
+            {enviando ? 'Enviando...' : 'Enviar Contato'}
+          </button>
         </form>
       </div>
 

@@ -15,10 +15,6 @@ function Header() {
           <li><Link to="/faleconosco">Fale Conosco</Link></li>
         </ul>
       </nav>
-      <div className="search-bar">
-        <input type="text" placeholder="Search" />
-        <button>Search</button>
-      </div>
     </header>
   );
 }
