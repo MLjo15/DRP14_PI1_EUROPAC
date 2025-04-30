@@ -1,14 +1,14 @@
 import React from 'react';
-import ProductCard from './ProductCard';
+import ProductCard from '../productcard/ProductCard';
 import './ProductGrid.css';
 import { Link } from 'react-router-dom';
 
 /* Importando imagens */
-import product1 from '../assets/images/Detector de Microfuros - Imagem.png';
-import product2 from '../assets/images/Ensacadora - Imagem.png';
-import product3 from '../assets/images/Esteira Reunidora - Imagem.png';
-import product4 from '../assets/images/Verificador de Peso - Imagem.png';
-import product5 from '../assets/images/Pente Posicionador - Imagem.png';
+import product1 from '../../assets/images/Detector de Microfuros - Imagem.png';
+import product2 from '../../assets/images/Ensacadora - Imagem.png';
+import product3 from '../../assets/images/Esteira Reunidora - Imagem.png';
+import product4 from '../../assets/images/Verificador de Peso - Imagem.png';
+import product5 from '../../assets/images/Pente Posicionador - Imagem.png';
 
 // Array de produtos
 const products = [

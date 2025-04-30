@@ -2,13 +2,13 @@ import React from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
 /* Importando componentes e páginas */
-import Header from './components/Header';
-import Hero from './components/Hero';
-import ProductGrid from './components/ProductGrid';
-import Footer from './components/Footer';
-import ProductDetails from './components/ProductDetails';
-import BudgetForm from './components/BudgetForm';
-import Enterprise from './components/Enterprise'; 
+import Header from './components/header/Header';
+import Hero from './components/hero/Hero';
+import ProductGrid from './components/productgrid/ProductGrid';
+import Footer from './components/footer/Footer';
+import ProductDetails from './components/productdetails/ProductDetails';
+import BudgetForm from './components/budgetform/BudgetForm';
+import Enterprise from './components/enterprise/Enterprise'; 
 
 import './App.css';
 
