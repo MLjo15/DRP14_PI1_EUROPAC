@@ -1,0 +1,32 @@
+.header {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 0.5rem;
+    background-color: #d8d8d8; /* Cor de fundo clara */
+    border-bottom: 1px solid #d8d8d8;
+  }
+  
+  .header .logo img {
+    max-height: 5rem; /* Ajuste o tamanho conforme necessário */
+    margin-left: -18rem;
+  }
+  
+  .navigation ul {
+    display: flex;
+    justify-content: space-around;
+    gap: 1rem; /* 1rem = 16px*/
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .navigation li {
+    margin-left: 1rem;
+  }
+  
+  .navigation a {
+    text-decoration: none;
+    color: #333;
+  }
+  

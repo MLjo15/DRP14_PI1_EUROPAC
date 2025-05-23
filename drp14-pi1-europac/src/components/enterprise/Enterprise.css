@@ -1,0 +1,25 @@
+.empresa-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 84vh;
+    background-color: #d8d8d8;
+  }
+  
+  .empresa-content {
+    width: 100%;
+    max-width: 30%;
+    padding: 5px;
+    border: 1px solid #d8d8d8;
+    border-radius: 5px;
+    background-color: #d8d8d8;
+  }
+  
+  .empresa-content h1 {
+    font-size: 2em;
+    margin-bottom: 10px;
+  }
+  
+  .empresa-content p {
+    line-height: 1.6;
+  }
