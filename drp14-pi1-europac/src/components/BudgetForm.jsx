@@ -38,8 +38,10 @@ function BudgetForm() {
       return;
     }
 
-    if (!telefone.trim()) {
-      setMensagemErro('Por favor, digite seu telefone.');
+    // Validação aprimorada para telefone (10 ou 11 dígitos)
+    const justNumbers = telefone.replace(/\D/g, '');
+    if (justNumbers.length < 10 || justNumbers.length > 11) {
+      setMensagemErro('Por favor, digite um telefone válido com 10 ou 11 dígitos.');
       setEnviando(false);
       return;
     }
@@ -105,6 +107,17 @@ function BudgetForm() {
     }
   };
 
+  // Função para formatar o número de telefone enquanto o usuário digita
+  const handlePhoneChange = (event) => {
+    let value = event.currentTarget.value.replace(/\D/g, ''); // Remove tudo que não é dígito
+    if (value.length > 11) {
+      value = value.slice(0, 11); // Limita a 11 dígitos
+    }
+    value = value.replace(/^(\d{2})(\d)/g, '($1) $2'); // Coloca parênteses em volta dos dois primeiros dígitos
+    value = value.replace(/(\d{4,5})(\d{4})$/, '$1-$2'); // Coloca hífen antes dos últimos 4 dígitos
+    setTelefone(value);
+  };
+
   return (
     <div className="budget-form-container">
       <div className="form-container">
@@ -117,6 +130,7 @@ function BudgetForm() {
             type="text"
             id="nome"
             value={nome}
+            placeholder="Seu nome completo"
             onChange={(e) => setNome(e.target.value)}
             required
           />
@@ -126,6 +140,7 @@ function BudgetForm() {
             type="email"
             id="email"
             value={email}
+            placeholder="exemplo@email.com"
             onChange={(e) => setEmail(e.target.value)}
             required
           />
@@ -135,7 +150,9 @@ function BudgetForm() {
             type="tel"
             id="telefone"
             value={telefone}
-            onChange={(e) => setTelefone(e.target.value)}
+            placeholder="(11) 99999-9999"
+            onChange={handlePhoneChange}
+            maxLength="15"
             required
           />
 
@@ -144,6 +161,7 @@ function BudgetForm() {
             type="text"
             id="assunto"
             value={assunto}
+            placeholder="Sobre qual produto você gostaria de falar?"
             onChange={(e) => setAssunto(e.target.value)}
             required
           />
