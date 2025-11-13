@@ -1,0 +1,12 @@
+.product-grid-container {
+    padding: 50px;
+    text-align: center;
+    background-color: #d8d8d8;
+  }
+  
+  .product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Cria colunas responsivas */
+    gap: 15px;
+    margin-top: 10px;
+  }
