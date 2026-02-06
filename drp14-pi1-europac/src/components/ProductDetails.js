@@ -2,7 +2,7 @@ import React from 'react';
 import { useParams } from 'react-router-dom';
 import { Link } from 'react-router-dom'; 
 import './ProductDetails.css';
-import { productsData } from './products'; // Importa os dados dos produtos
+import { productsData } from './productsData'; // Importa os dados dos produtos
 
 function ProductDetails() {
   const { productId } = useParams();

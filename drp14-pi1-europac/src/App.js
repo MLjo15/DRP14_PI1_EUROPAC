@@ -1,32 +1,29 @@
 import React from 'react';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
-
-/* Importando componentes e páginas */
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Header from './components/Header';
-import Hero from './components/Hero';
 import Footer from './components/Footer';
-import ProductDetails from './components/ProductDetails';
+import Hero from './components/Hero';
+import Enterprise from './components/Enterprise';
 import BudgetForm from './components/BudgetForm';
-import Enterprise from './components/Enterprise'; 
-import ProductsPage from './components/ProductsPage';
-
-import './App.css';
+import Products from './components/Products';
+import ProductDetails from './components/ProductDetails';
 
 function App() {
   return (
-    <BrowserRouter>
-      <div className="app-container">
-        <Header />
-        <Routes>
-          <Route path="/" element={<Hero />} /> {/* Removido o ProductGrid da Home */}
-          <Route path="/produtos" element={<ProductsPage />} /> {/* Adicionada a nova rota de produtos */}
-          <Route path="/product/:productId" element={<ProductDetails />} />
-          <Route path="/faleconosco" element={<BudgetForm />} />
-          <Route path="/enterprise" element={<Enterprise />} />
-        </Routes>
-        <Footer />
-      </div>
-    </BrowserRouter>
+    <Router>
+      <Header />
+      <Routes>
+        <Route path="/" element={<Hero />} />
+        <Route path="/enterprise" element={<Enterprise />} />
+        
+        {/* Rotas de Produtos Atualizadas */}
+        <Route path="/produtos" element={<Products />} />
+        <Route path="/produto/:productId" element={<ProductDetails />} />
+        
+        <Route path="/faleconosco" element={<BudgetForm />} />
+      </Routes>
+      <Footer />
+    </Router>
   );
 }
 
